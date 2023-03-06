@@ -18,9 +18,8 @@ import matplotlib.pyplot as plt
 import time
 from keras.utils import to_categorical
 from keras.models import Model
-from keras.layers import Dense, Input, Conv1D, Activation, Dropout
+from keras.layers import Dense, Input, Conv1D, Activation, Dropout, concatenate
 from keras.layers.pooling import GlobalMaxPooling1D, MaxPool1D
-from keras.layers.merge import concatenate
 from keras import optimizers
 from keras.regularizers import l2
 from sklearn.metrics import roc_curve, precision_recall_curve, auc, average_precision_score
