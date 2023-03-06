@@ -54,12 +54,9 @@ def read_files(path, window=125):
 def user_input():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('-d', '--data', help='Path to fasta file.',
-                        type=str, required=True)
-    
-    parser.add_argument('-m', '--model', help='Path to model.',
-                        type=str, required=True)
-    
+    parser.add_argument('-d', '--data', help='Path to fasta file.', type=str, required=True)    
+    parser.add_argument('-m', '--model', help='Path to model.', type=str, required=True)
+
     args = parser.parse_args()
     arguments = vars(args)
 
@@ -68,16 +65,14 @@ def user_input():
 def main():
 
     args = user_input()
-	data = read_files(args['data'])
-	x = np.array(list(map(oneHot, train.seq)))
-	model = load_model(args['model'])
-	pred = model.predict(x)
-	data['predicted]'] = pred.squeeze()
-	
-	data.to_csv('G4detector_prediction.csv', index=False)
-	
-   
-        
+    data = read_files(args['data'])
+    x = np.array(list(map(oneHot, train.seq)))
+    model = load_model(args['model'])
+    pred = model.predict(x)
+    data['predicted]'] = pred.squeeze()
+
+    data.to_csv('G4detector_prediction.csv', index=False)
+
 
 if __name__ == "__main__":
     main()
