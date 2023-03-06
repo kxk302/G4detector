@@ -26,14 +26,14 @@ def oneHot(string, win=124):
 #     Output: mat - the encoded matrix
 # =============================================================================
     if len(string) > win:
-	     pwin = round(win/2)
-	     c = round(len(string)/2)
-		 string = string[c-pwin:c+pwin]
-	elif len(string) < win:
-	    z1 = round((win - len(string))/2)
-		z2 = win - z1
-		string = 'N'*z1 + string + 'N'*z2
-		
+        pwin = round(win/2)
+        c = round(len(string)/2)
+        string = string[c-pwin:c+pwin]
+    elif len(string) < win:
+        z1 = round((win - len(string))/2)
+        z2 = win - z1
+        string = 'N'*z1 + string + 'N'*z2
+
     trantab = str.maketrans('ACGTN', '01234')
     string = string + 'ACGTN'
     data = list(string.translate(trantab))
