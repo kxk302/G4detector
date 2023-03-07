@@ -50,8 +50,8 @@ def read_files(path, window=125):
 
     f = pd.read_csv(path, header=None, names=["sequence"], index_col=False)
     f[f["sequence"].str.contains(">")] = ">"
-    f = pd.DataFrame(
-        "".join(f["sequence"].values).split(">")[1:].reset_index(drop=True)
+    f = pd.DataFrame("".join(f["sequence"].values).split(">")[1:]).reset_index(
+        drop=True
     )
 
     return f
