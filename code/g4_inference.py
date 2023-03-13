@@ -37,7 +37,7 @@ def oneHot(string, win=124):
         z2 = win - z1
         string = "N" * z1 + string + "N" * z2
 
-    trantab = str.maketrans("ACGTN", "01234")
+    trantab = str.maketrans("ACGTNacgtn", "0123401234")
     string = string + "ACGTN"
     data = list(string.translate(trantab))
     mat = to_categorical(data)[0:-5]
