@@ -75,7 +75,7 @@ def main():
 
     args = user_input()
     data = read_files(args["data"])
-    x = np.array(list(map(oneHot, train.seq)))
+    x = np.array(list(map(oneHot, list(data[0]))))
     model = load_model(args["model"])
     pred = model.predict(x)
     data["predicted]"] = pred.squeeze()
